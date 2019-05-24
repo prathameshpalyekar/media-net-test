@@ -1,6 +1,5 @@
-import {
-  FETCH_DATA_SUCESS,
-} from '../actions/subscribeData';
+import { FETCH_DATA_SUCESS } from '../actions/subscribeData';
+import { CLEAR_STOCK_DATA } from '../actions/clearData';
 
 export const initialState = {
   data: [],
@@ -16,7 +15,7 @@ export default function stockDataReducer(state = initialState, action) {
             // Check last original value as there will be possibility of two stocks in one message
             const originalStock = state.data.find((oldStock) => oldStock.name === stock.name);
             if (stockPresent) {
-                const lastValue = originalStock.currentValue;
+                const lastValue = originalStock && originalStock.currentValue;
                 stockPresent.currentValue = stock.value;
                 stockPresent.lastValue = lastValue;
                 stockPresent.updatedAt = stock.time;
@@ -39,6 +38,8 @@ export default function stockDataReducer(state = initialState, action) {
             }
         })
         return { data: oldData };
+    case CLEAR_STOCK_DATA:
+        return { data: [] };
     default:
         return state;
   }
