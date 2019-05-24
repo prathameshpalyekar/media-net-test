@@ -1,0 +1,37 @@
+.home-dashboard {
+    .-stock-table {
+        background-color: #303549;
+        padding: 30px;
+        .-table-header {
+
+        }
+        .-stock {
+            padding: 15px;
+            .-stock-row {
+                display: flex;
+                background-color: #1a202e;
+                padding: 15px;
+                .-name,.-value, .-time  {
+                    padding: 10px;
+                    color: white;
+                }
+                .-name {
+                    width: 30%;
+                    text-transform: uppercase;
+                }
+                .-value {
+                    width: 30%;
+                    &.up {
+                        color: #7ac231;
+                    }
+                    &.down {
+                        color: #d0021b;
+                    }
+                }
+                .-time {
+                    width: 40%;
+                }
+            }
+        }
+    }
+}
