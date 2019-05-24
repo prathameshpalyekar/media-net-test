@@ -2,25 +2,29 @@
     .-stock-table {
         background-color: #303549;
         padding: 30px;
-        .-table-header {
-
-        }
         .-stock {
-            padding: 15px;
+            margin: 15px;
+            background-color: #1a202e;
+            width: 30%;
+            display: inline-block;
+            border-radius: 4px;
+            @media screen and (max-width: 600px) {
+                width: 100%;
+                margin: 0 0 20px;
+            }
             .-stock-row {
                 display: flex;
-                background-color: #1a202e;
                 padding: 15px;
                 .-name,.-value, .-time  {
                     padding: 10px;
                     color: white;
                 }
                 .-name {
-                    width: 30%;
+                    width: 25%;
                     text-transform: uppercase;
                 }
                 .-value {
-                    width: 30%;
+                    width: 25%;
                     &.up {
                         color: #7ac231;
                     }
@@ -29,8 +33,13 @@
                     }
                 }
                 .-time {
-                    width: 40%;
+                    flex: 1;
                 }
+            }
+            .-stock-chart {
+                max-height: 200px;
+                height: 200px;
+                padding-right: 25px;
             }
         }
     }
