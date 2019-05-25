@@ -16,7 +16,7 @@ module.exports = (env, argv) => {
             path: path.join(__dirname, 'assets'),
             filename: '[name].js',
             chunkFilename: '[chunkhash].js',
-            publicPath: '/assets/',
+            publicPath: '/',
         },
         cache: true,
         bail: true,
