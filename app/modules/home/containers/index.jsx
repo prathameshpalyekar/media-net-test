@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { subscribeData } from '../actions/subscribeData';
 import { clearData } from '../actions/clearData';
+import { unsubscribeData } from '../actions/unsubscribeData';
 
 class Home extends Component {
     constructor(props) {
@@ -20,11 +21,15 @@ class Home extends Component {
         dispatch(clearData());
     }
 
+    componentWillUnmount() {
+        unsubscribeData();
+    }
+
     render() {
         const { Layout, stocks } = this.props;
         return (
             <div>
-                <Layout stocks={stocks} clearData={this.clearData}/>
+                <Layout stocks={stocks} clearData={this.clearData} />
             </div>
         );
     };
